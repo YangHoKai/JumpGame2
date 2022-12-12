@@ -5,9 +5,9 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     Rigidbody2D rig2D;
-    float jumpForce=680.0f;
-    float walkForce=30.0f;
-    float Maxswalkpeed=2.0f;
+    public float jumpForce=680.0f;
+    public float walkForce =30.0f;
+    public float Maxswalkpeed =2.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.Space))
         {
             rig2D.AddForce(transform.up * jumpForce);
         }
@@ -30,7 +30,10 @@ public class Player : MonoBehaviour
         {
             rig2D.AddForce(transform.right * key * walkForce);
         }
-
+        if(key!=0)
+        {
+            transform.localScale = new Vector3(key, 1, 1);
+        }
 
 
     }
