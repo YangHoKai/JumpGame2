@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
 {
     Rigidbody2D rig2D;
     Animator an;
+    GameObject GameManager;
     public float jumpForce=680.0f;
     public float walkForce =30.0f;
     public float Maxswalkpeed =2.0f;
@@ -15,6 +16,7 @@ public class Player : MonoBehaviour
     {
         rig2D = GetComponent<Rigidbody2D>();
         an = GetComponent<Animator>();
+        GameManager = GameObject.Find("GameManager");
     }
 
     // Update is called once per frame
@@ -54,6 +56,10 @@ public class Player : MonoBehaviour
         if(collision.name=="flag")
         {
             SceneManager.LoadScene("GameClear");
+        }
+        if (collision.tag == "arrow")
+        {
+            GameManager.GetComponent<GameManager>().DecreaseHp();
         }
     }
 }

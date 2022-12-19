@@ -1119,6 +1119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Arrow: {fileID: 167156033781501408, guid: 9162a819ea330714a9dae5a1457463ee, type: 3}
+  Hp: {fileID: 2132155381}
 --- !u!4 &810070904
 Transform:
   m_ObjectHideFlags: 0
