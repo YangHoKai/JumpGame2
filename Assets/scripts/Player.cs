@@ -61,5 +61,9 @@ public class Player : MonoBehaviour
         {
             GameManager.GetComponent<GameManager>().DecreaseHp();
         }
+        if (collision.name == "GameOver")
+        {
+            SceneManager.LoadScene("GameOver");
+        }
     }
 }
