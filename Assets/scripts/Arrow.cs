@@ -2,13 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class Arrow : MonoBehaviour
 {
-    public GameObject Arrow;
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("ArrowShot", 0, 1.0f);
+        Destroy(gameObject, 3f);
     }
 
     // Update is called once per frame
@@ -16,9 +15,11 @@ public class GameManager : MonoBehaviour
     {
         
     }
-    void ArrowShot()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        Instantiate(Arrow, new Vector3(Random.Range(-3, 3), 10, 0), Quaternion.identity);
+        if(collision.name== "cat")
+        {
+            Destroy(gameObject);
+        }
     }
-    
 }
